@@ -37,7 +37,7 @@ Am Ende des Spiels – entweder durch das Finden aller Kartenpaare oder durch Ab
 
 ## Umsetzung
 
-Das Projekt wird mit aktuellen Webtechnologien umgesetzt (z. B. HTML, CSS, JavaScript). Datenbankfunktionen werden über ein serverseitiges Backend (z. B. Node.js + Express oder PHP) realisiert, eventuell mit einer MySQL- oder MongoDB-Datenbank im Hintergrund.
+Das Projekt wird mit aktuellen Webtechnologien umgesetzt (z. B. HTML, CSS, JavaScript). Datenbankfunktionen werden über ein serverseitiges Backend realisiert, eventuell mit einer MySQL- oder MongoDB-Datenbank im Hintergrund.
 
 ## Ziel
 
