@@ -1,0 +1,69 @@
+#start-menu {
+    margin-top: 100px;
+}
+
+#start-menu input {
+    padding: 10px;
+    font-size: 1em;
+    width: 200px;
+}
+
+#start-menu button {
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+#greeting {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #555;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    margin-bottom: 10px;
+}
+
+.game-info {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    color: #333;
+}
+
+.memory-game {
+    display: grid;
+    grid-template-columns: repeat(2, 180px);
+    gap: 20px;
+    justify-content: center;
+}
+
+.memory-card {
+    width: 180px;           
+    height: 252px;         
+    background-color: white;
+    border: 2px solid #333;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5em;       
+    cursor: pointer;
+    user-select: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    transition: transform 1.2s ease;
+}
+
+.memory-card:hover {
+    transform: scale(1.03);
+}   
