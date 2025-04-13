@@ -64,6 +64,13 @@ h1 {
     transition: transform 1.2s ease;
 }
 
+.memory-back-cover{
+    background-image: url("./assets/card_background.jpg") ;
+    background-size: cover;
+    background-position-x: 0px;
+    background-position-y: 0px;
+}
+
 .memory-card:hover {
     transform: scale(1.03);
 }   
