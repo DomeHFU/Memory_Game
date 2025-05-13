@@ -31,30 +31,11 @@
             </div>
         </div>
 
-        <div class="memory-game">
-           <div class="memory-card memory-back-cover" data-card="A">?</div>
-            <div class="memory-card memory-back-cover" data-card="A">?</div>
-            <div class="memory-card memory-back-cover" data-card="B">?</div>
-            <div class="memory-card memory-back-cover" data-card="B">?</div>
+        <div class="memory-game" id="memory-game">
         </div>
     </div>
 
-    <script>
-        function startGame() {
-            const nameInput = document.getElementById("player-name");
-            const name = nameInput.value.trim();
-
-            if (name === "") {
-                alert("Bitte gib deinen Namen ein.");
-                return;
-            }
-
-            document.getElementById("start-menu").style.display = "none";
-            document.getElementById("game-area").style.display = "block";
-
-            document.getElementById("greeting").textContent = "Viel Glück, " + name + "!";
-        }
-    </script>
+    <script src="main.js"></script>
 
 </body>
 </html>
