@@ -1,0 +1,101 @@
+
+#start-menu {
+    margin-top: 100px;
+    display: flex;           /* Flexbox aktivieren */
+    flex-direction: column;  /* Elemente untereinander */
+    align-items: center;     /* horizontal zentrieren */
+    gap: 15px;               /* Abstand zwischen Input, Button, Highscore */
+}
+
+#start-menu input {
+    padding: 10px;
+    font-size: 1em;
+    width: 200px;
+}
+
+#start-menu button {
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    display: block;
+}
+
+#highscore-list {
+    margin-top: 20px;
+    text-align: left;        /* Text innerhalb des Kasten links */
+    display: block;          /* eigene Zeile */
+    font-size: 1em;
+    color: #222;
+    background: #fff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+#highscore-list ol {
+    margin: 0;
+    padding-left: 20px;
+}
+
+#greeting {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #e9e9e9;
+    margin: 0;
+    padding: 20px;
+    overflow-x: hidden;
+}
+
+h1 {
+    margin-bottom: 10px;
+}
+
+.game-info {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    color: #333;
+}
+
+.memory-game {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 20px;
+    justify-content: center;
+    max-width: 100%;
+}
+
+.memory-card {
+    width: 100%;
+    height: 286px;
+    background-color: white;
+    border: 2px solid #333;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5em;
+    cursor: pointer;
+    user-select: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 1.2s ease;
+}
+
+.memory-back-cover {
+    background-image: url("./assets/card_background.jpg");
+    background-size: cover;
+    background-position-x: 0px;
+    background-position-y: 0px;
+}
+
+.memory-card:hover {
+    transform: scale(1.02);
+}
