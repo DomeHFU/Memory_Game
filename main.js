@@ -8,6 +8,8 @@ let cards = [
     "I", "I"
 ];
 
+const backendApi = 'http://localhost:3000/highscore';
+
 function startGame() {
     const nameInput = document.getElementById("player-name");
     const name = nameInput.value.trim();
@@ -118,32 +120,58 @@ function startTimer() {
 }
 
 function saveHighscore(name, score, time) {
-    const highScores = JSON.parse(localStorage.getItem("highScores") || "[]");
-    highScores.push({ name, score, time });
-    highScores.sort((a, b) => b.score - a.score);
-    localStorage.setItem("highScores", JSON.stringify(highScores.slice(0, 5)));
+    fetch(`${backendApi}`)
+        .then(res => res.json())
+        .then(data => {
+            const existing = data.find(entry => entry.name === name);
+            if (existing) { 
+                fetch(`${backendApi}` , {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name, points: score, time })
+                })
+                .then(res => res.json())
+                .then(() => showHighscores())
+                .catch(err => console.error(err));
+            } else {
+                fetch(`${backendApi}`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name, points: score, time })
+                })
+                .then(res => res.json())
+                .then(() => showHighscores())
+                .catch(err => console.error(err));
+            }
+        })
+        .catch(err => console.error(err));
 }
 
 function showHighscores() {
-    const container = document.getElementById("highscore-list");
-    const highScores = JSON.parse(localStorage.getItem("highScores") || "[]");
+    fetch("http://localhost:3000/highscore")
+        .then(res => res.json())
+        .then(data => {
+            const container = document.getElementById("highscore-list");
 
-    if (!container) return;
+            if (data.length === 0) {
+                container.innerHTML = "<p>Noch keine Highscores vorhanden.</p>";
+                return;
+            }
 
-    if (highScores.length === 0) {
-        container.innerHTML = "<p>Noch keine Highscores vorhanden.</p>";
-        return;
-    }
+            const list = document.createElement("ol");
 
-    const list = document.createElement("ol");
-    highScores.forEach(entry => {
-        const li = document.createElement("li");
-        li.textContent = `${entry.name}: ${entry.score} Punkte (${entry.time})`;
-        list.appendChild(li);
-    });
+            data.forEach(entry => {
+                const li = document.createElement("li");
+                li.textContent =
+                    `${entry.name} – ${entry.points} Punkte – ${entry.time} – Siege: ${entry.wins}`;
+                list.appendChild(li);
+            });
 
-    container.innerHTML = "";
-    container.appendChild(list);
+            container.innerHTML = "";
+            container.appendChild(list);
+        });
 }
 
-document.addEventListener("DOMContentLoaded", showHighscores);
+document.addEventListener("DOMContentLoaded", () => {
+    showHighscores();
+});
