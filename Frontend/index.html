@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Spiel</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+    <div id="start-menu">
+        <h1>Willkommen beim Memory!</h1>
+        <label for="player-name">Dein Name:</label><br>
+        <input type="text" id="player-name" placeholder="Name eingeben"><br>
+        <button onclick="startGame()">Spiel starten</button>
+
+        <div id="highscore-list"></div>
+    </div>
+
+    <div id="game-area" style="display: none;">
+        <h1>Memory Spiel</h1>
+
+        <div id="greeting"></div>
+
+        <div class="game-info">
+            <div class="scoreboard">
+                <span>Punkte: </span>
+                <span id="score">0</span>
+            </div>
+            <div class="timer">
+                <span>Zeit: </span>
+                <span id="time">00:00</span>
+            </div>
+        </div>
+
+        <div class="memory-game" id="memory-game"></div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
